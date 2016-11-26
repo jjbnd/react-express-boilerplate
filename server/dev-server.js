@@ -9,6 +9,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+import packageInfo from '../package.json';
 import webpackDevConfig from './config/webpack.dev.config';
 
 import loadRouters from './utils/auto-load-routers';
@@ -43,7 +44,6 @@ app.use('/', (req, res) => {
   res.sendFile(path.join(projectHome, 'client', 'index.html'));
 });
 
-const packageInfo = require('../package.json');
 commander
   .version(packageInfo.version)
   .option('-p, --port <port>', 'port')
