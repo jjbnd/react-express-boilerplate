@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch server --exec babel-node --presets es2015 -- ./server/dev-server.js --port 3000"
+    "dev": "nodemon --watch ./server --exec babel-node --presets es2015 -- ./scripts/dev-server.js --port 3000"
   },
   "author": "jaeyong",
   "license": "ISC",

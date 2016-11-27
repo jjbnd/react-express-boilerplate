@@ -1,16 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const projectHome = path.resolve(path.join(__dirname, '..', '..'));
+
+const projectHome = path.resolve(path.join(__dirname, '..'));
+const viewEntryPoint = path.join(projectHome, 'views');
 
 module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client',
-    './client/index.jsx',
+    './views/index.jsx',
   ],
   output: {
-    path: path.join(projectHome, 'client', 'public', 'dist'),
+    path: path.join(projectHome, 'public', 'dist'),
     filename: 'bundle.js',
     publicPath: '/public/dist',
   },
@@ -26,19 +28,19 @@ module.exports = {
           presets: ['es2015', 'react'],
         },
         exclude: /node_modules/,
-        include: path.join(projectHome, 'client'),
+        include: viewEntryPoint,
       },
       {
         test: /\.css$/,
-        loader: 'style!css!postcss'
+        loader: 'style!css!postcss',
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json',
       },
     ],
   },
-  postcss: function() {
+  postcss() {
     return [
       autoprefixer({
         browsers: [
@@ -46,7 +48,7 @@ module.exports = {
           'last 4 versions',
           'Firefox ESR',
           'not ie < 9', // React doesn't support IE8 anyway
-        ]
+        ],
       }),
     ];
   },
@@ -54,4 +56,4 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
-}
+};

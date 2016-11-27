@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
+const dynamicRequire = require;
+
 function loadRouters(absPath) {
   const files = fs.readdirSync(absPath);
   let routers = [];
@@ -9,8 +11,8 @@ function loadRouters(absPath) {
     const stat = fs.statSync(filePath);
 
     if (stat.isFile()) {
-      let router = require(filePath);
-      if (router && router.__esModule) {
+      let router = dynamicRequire(filePath);
+      if (router && ('__esModule' in router)) {
         // if es6 module
         router = router.default;
       }
