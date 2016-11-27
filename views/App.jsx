@@ -6,7 +6,7 @@ const App = () => (
   <div
     className="App"
     style={{
-      margin: '20',
+      margin: '20px',
     }}
   >
     <Hello />
