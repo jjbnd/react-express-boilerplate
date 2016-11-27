@@ -3,15 +3,17 @@ import path from 'path';
 import express from 'express';
 import debugModule from 'debug';
 import commander from 'commander';
+import config from 'config';
 
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import packageInfo from '../package.json';
-import webpackDevConfig from '../config/webpack.dev.config';
 
 import initServer from '../server';
+
+const webpackDevConfig = config.get('webpack');
 
 const app = express();
 const debug = debugModule('file-browser:');

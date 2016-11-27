@@ -5,7 +5,7 @@ const autoprefixer = require('autoprefixer');
 const projectHome = path.resolve(path.join(__dirname, '..'));
 const viewEntryPoint = path.join(projectHome, 'views');
 
-module.exports = {
+module.exports.webpack = {
   devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client',
