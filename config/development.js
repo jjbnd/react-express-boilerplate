@@ -5,6 +5,9 @@ const autoprefixer = require('autoprefixer');
 const projectHome = path.resolve(path.join(__dirname, '..'));
 const viewEntryPoint = path.join(projectHome, 'views');
 
+const appBuild = path.join(projectHome, 'public', 'dist');
+const publicPath = '/';
+
 module.exports.webpack = {
   devtool: 'eval',
   entry: [
@@ -12,9 +15,10 @@ module.exports.webpack = {
     './views/index.jsx',
   ],
   output: {
-    path: path.join(projectHome, 'public', 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/public/dist',
+    path: appBuild,
+    pathInfo: true,
+    filename: 'public/dist/bundle.js',
+    publicPath,
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
@@ -23,12 +27,11 @@ module.exports.webpack = {
     loaders: [
       {
         test: /\.(js|jsx)$/,
+        include: viewEntryPoint,
         loader: 'babel',
         query: {
           presets: ['es2015', 'react'],
         },
-        exclude: /node_modules/,
-        include: viewEntryPoint,
       },
       {
         test: /\.css$/,

@@ -16,7 +16,7 @@ import initServer from '../server';
 const webpackDevConfig = config.get('webpack');
 
 const app = express();
-const debug = debugModule('file-browser:');
+const debug = debugModule(config.has('App.title') ? config.get('App.title') : 'app');
 const projectHome = path.resolve(path.join(__dirname, '..'));
 const publicPath = webpackDevConfig.output.publicPath;
 
@@ -42,7 +42,7 @@ commander
   .parse(process.argv)
   ;
 
-const PORT = commander.port;
+const PORT = commander.port || 3000;
 app.listen(PORT, () => {
   debug(`http://localhost:${PORT} is started.`);
 });
