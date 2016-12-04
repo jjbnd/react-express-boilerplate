@@ -8,7 +8,7 @@ function initServer(app) {
   app.use(bodyParser.json());
 
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
   });
 
   const routers = loadRouters(path.join(__dirname, 'routers'));

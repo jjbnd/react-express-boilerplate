@@ -4,7 +4,6 @@ const autoprefixer = require('autoprefixer');
 
 const projectHome = path.resolve(path.join(__dirname, '..'));
 const viewEntryPoint = path.join(projectHome, 'views');
-
 const appBuild = path.join(projectHome, 'public', 'dist');
 const publicPath = '/';
 
@@ -21,7 +20,7 @@ module.exports.webpack = {
     publicPath,
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', ''],
   },
   module: {
     loaders: [
