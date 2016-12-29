@@ -1,7 +1,7 @@
-import express from 'express';
-import debugModule from 'debug';
+const express = require('express');
+const debugModule = require('debug');
 
-const debug = debugModule('file-browser:hello');
+const debug = debugModule('example:');
 const router = express.Router();
 
 router.get('/hello', (req, res) => {
@@ -9,4 +9,4 @@ router.get('/hello', (req, res) => {
   res.send('hello');
 });
 
-export default router;
+module.exports = router;

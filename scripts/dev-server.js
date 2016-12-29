@@ -1,17 +1,16 @@
-import path from 'path';
+const path = require('path');
 
-import express from 'express';
-import debugModule from 'debug';
-import commander from 'commander';
-import config from 'config';
+const express = require('express');
+const debugModule = require('debug');
+const commander = require('commander');
+const config = require('config');
 
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 
-import packageInfo from '../package.json';
-
-import initServer from '../server';
+const packageInfo = require('../package.json');
+const initServer = require('../server');
 
 const webpackDevConfig = config.get('webpack');
 

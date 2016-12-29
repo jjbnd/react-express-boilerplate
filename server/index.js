@@ -1,14 +1,17 @@
-import path from 'path';
-import bodyParser from 'body-parser';
+const path = require('path');
+const bodyParser = require('body-parser');
+const loadRouters = require('./utils/auto-load-routers');
+const fs = require('fs');
 
-import loadRouters from './utils/auto-load-routers';
+const indexHtmlPath = path.join(__dirname, '..', 'public', 'index.html');
+const index = fs.readFileSync(indexHtmlPath);
 
 function initServer(app) {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
+    res.end(index);
   });
 
   const routers = loadRouters(path.join(__dirname, 'routers'));
@@ -17,4 +20,4 @@ function initServer(app) {
   });
 }
 
-export default initServer;
+module.exports = initServer;

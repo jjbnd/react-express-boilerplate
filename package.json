@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./scripts/start-server.js",
-    "dev": "nodemon --watch ./server --exec babel-node --presets es2015 -- ./scripts/dev-server.js --port 3000"
+    "dev": "nodemon --watch ./server --exec babel-node --presets es2015 -- ./scripts/dev-server.js --port 3000",
+    "build": "node ./scripts/build.js"
   },
   "author": "jaeyong",
   "license": "ISC",
@@ -17,8 +18,10 @@
     "cookie-parser": "^1.4.3",
     "debug": "^2.3.3",
     "express": "^4.14.0",
+    "object-assign": "^4.1.0",
     "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
@@ -32,9 +35,11 @@
     "css-loader": "^0.26.0",
     "eslint": "^3.10.2",
     "eslint-config-airbnb": "^13.0.0",
+    "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "json-loader": "^0.5.4",
     "postcss-loader": "^1.1.1",
     "style-loader": "^0.13.1",
